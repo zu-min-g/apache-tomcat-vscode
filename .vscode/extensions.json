@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "pthorsson.vscode-jsp",
+        "vscjava.vscode-java-pack",
+        "ms-vscode-remote.remote-containers"
+    ]
+}

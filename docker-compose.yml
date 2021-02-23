@@ -1,0 +1,29 @@
+version: '3'
+
+volumes:
+  m2:
+    driver: local
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  tomcat:
+    image: tomcat:10-jdk11
+    volumes:
+      - m2:/root/.m2
+      - ./_docker/tomcat/server.xml:/usr/local/tomcat/conf/server.xml
+      - ./_docker/tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./_docker/tomcat/context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+    networks:
+      - backend
+
+  httpd:
+    image: httpd:2.4
+    volumes:
+      - ./_docker/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - 10080:80
+    networks:
+      - backend

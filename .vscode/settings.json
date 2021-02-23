@@ -1,0 +1,9 @@
+{
+    "maven.terminal.favorites": [
+        {
+            "alias": "deploy",
+            "command": "tomcat7:redeploy"
+        }
+    ],
+    "java.server.launchMode": "Standard"
+}
